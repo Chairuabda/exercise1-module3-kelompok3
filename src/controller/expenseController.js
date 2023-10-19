@@ -1,18 +1,128 @@
-const { findExpensesService } = require("../services/expenseService")
+const {
+	findExpensesService,
+	findExpensesServiceList,
+	createExpensesService,
+	changeExpensesService,
+	removeExpensesService,
+    findexpensesServiceByCategory,
+    findexpensesServiceByDate
+} = require("../services/expenseService");
 
-const findExpensesController = async(req, res) => {
-    try{
-        const expenses = await findExpensesService();
-        
+const findExpensesControllerList = async (req, res) => {
+	try {
+		const expenses = await findExpensesServiceList();
+		return res.status(200).json({
+			message: "Get expenses success",
+			data: expenses,
+		});
+	} catch (err) {
+		return res.status(500).json({
+			message: err.message,
+		});
+	}
+};
+const findExpensesController = async (req, res) => {
+	try {
+		const { id } = req.params;
+		const expenses = await findExpensesService(id);
+		return res.status(200).json({
+			message: "Find expenses success",
+			data: expenses,
+		});
+	} catch (err) {
+		return res.status(500).json({
+			message: err.message,
+		});
+	}
+};
+const createExpensesController = async (req, res) => {
+	try {
+		const { name, nominal, category } = req.body;
+		const expenses = await createExpensesService(
+			name,
+			nominal,
+			category
+		);
+		return res.status(200).json({
+			message: "Create expenses success",
+			data: expenses,
+		});
+	} catch (err) {
+		return res.status(500).json({
+			message: err.message,
+		});
+	}
+};
+const changeExpensesController = async (req, res) => {
+	try {
+		const { name, nominal, category, id } = req.query;
+		const expenses = await changeExpensesService(
+			name,
+			nominal,
+			category,
+			id
+		);
+		return res.status(200).json({
+			message: "Change expenses success",
+			data: expenses,
+		});
+	} catch (err) {
+		return res.status(500).json({
+			message: err.message,
+		});
+	}
+};
+const removeExpensesController = async (req, res) => {
+	try {
+		const { id } = req.params;
+		const expenses = await removeExpensesService(id);
+		return res.status(200).json({
+			message: "Delete expenses success",
+			data: expenses,
+		});
+	} catch (err) {
+		return res.status(500).json({
+			message: err.message,
+		});
+	}
+};
+
+const findExpensesControllerByDate = async (req, res) => {
+    try {
+        const { date } = req.query;
+        const expenses = await findexpensesServiceByDate(date);
         return res.status(200).json({
-            message: "Get expenses success",
-            data: expenses,
+            message: 'get by date expense succes',
+            data : expenses,
         })
-    } catch(err) {
+    } catch (err) {
         return res.status(500).json({
-            message: err.message,
-        })
+			message: err.message,
+		});
     }
 }
 
-module.exports = { findExpensesController }
+const findExpensesControllerByCategory = async (req, res) => {
+    try {
+        const { category } = req.params;
+        const expenses = await findexpensesServiceByCategory(category);
+        return res.status(200).json({
+            message: 'get by category expense succes',
+            total : `${category}: ${expenses}`,
+        })
+    } catch (err) {
+        return res.status(500).json({
+			message: err.message,
+		});
+    }
+}
+
+module.exports = {
+	findExpensesControllerList,
+	findExpensesController,
+	createExpensesController,
+	changeExpensesController,
+	removeExpensesController,
+    findExpensesControllerByDate,
+    findExpensesControllerByCategory
+};
