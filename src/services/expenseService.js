@@ -77,9 +77,9 @@ const findexpensesServiceByCategory = async (category) => {
 		const expenses = await findExpensesQueryByCategory(category);
 		let resultExpenses = 0;
 		for (let x in expenses) {
-			if (expenses[x].category.toLowerCase() == category) {
-				resultExpenses += Number(expenses[x].nominal);
-			}
+			resultExpenses += Number(expenses[x].nominal);
+			// if (expenses[x].category.toLowerCase() == category) {
+			// }
 		}
 		return resultExpenses;
 	} catch (err) {

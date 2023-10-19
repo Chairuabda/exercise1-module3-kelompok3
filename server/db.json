@@ -4,169 +4,43 @@
       "name": "Bakso",
       "nominal": "15000",
       "category": "Food",
-      "date": "2023-10-18T11:44:14.054Z",
+      "date": "18-10-2023",
       "id": 1
     },
     {
       "name": "Pizza",
       "nominal": "200000",
       "category": "Food",
-      "date": "2023-10-18T11:44:37.919Z",
+      "date": "18-10-2023",
       "id": 2
     },
     {
       "name": "Coffee",
       "nominal": "25000",
       "category": "Drink",
-      "date": "2023-10-18T11:45:59.612Z",
+      "date": "18-10-2023",
       "id": 3
     },
     {
       "name": "Steak",
       "nominal": "350000",
       "category": "Food",
-      "date": "2023-10-18T11:47:38.822Z",
+      "date": "18-10-2023",
       "id": 4
     },
     {
       "name": "Milk",
       "nominal": "15000",
       "category": "Drink",
-      "date": "2023-10-18T11:49:15.034Z",
+      "date": "18-10-2023",
       "id": 5
     },
     {
       "name": "Aqua",
       "nominal": "3000",
       "category": "Drink",
-      "date": "2023-10-19T08:58:29.718Z",
+      "date": "19-10-2023",
       "id": 6
-    },
-    {
-      "name": "Aqua",
-      "nominal": "3000",
-      "category": "Drink",
-      "date": 16,
-      "id": 7
-    },
-    {
-      "name": "Aqua",
-      "nominal": "3000",
-      "category": "Drink",
-      "date": 1697706145304,
-      "id": 8
-    },
-    {
-      "name": "Aqua",
-      "nominal": "3000",
-      "category": "Drink",
-      "date": "2023-10-19T09:02:35.279Z",
-      "id": 9
-    },
-    {
-      "name": "Aqua",
-      "nominal": "3000",
-      "category": "Drink",
-      "date": 19,
-      "id": 10
-    },
-    {
-      "name": "Aqua",
-      "nominal": "3000",
-      "category": "Drink",
-      "date": 9,
-      "id": 11
-    },
-    {
-      "name": "Aqua",
-      "nominal": "3000",
-      "category": "Drink",
-      "date": 19,
-      "id": 12
-    },
-    {
-      "name": "Aqua",
-      "nominal": "3000",
-      "category": "Drink",
-      "date": "2023-10-19T09:11:33.101Z",
-      "id": 13
-    },
-    {
-      "name": "Aqua",
-      "nominal": "3000",
-      "category": "Drink",
-      "date": "function getFullYear() { [native code] }",
-      "id": 14
-    },
-    {
-      "name": "Aqua",
-      "nominal": "3000",
-      "category": "Drink",
-      "date": "Thu Oct 19 2023 16:13:08 GMT+0700 (Western Indonesia Time)",
-      "id": 15
-    },
-    {
-      "name": "Aqua",
-      "nominal": "3000",
-      "category": "Drink",
-      "date": "2023-10-19T09:13:34.899Z",
-      "id": 16
-    },
-    {
-      "name": "Aqua",
-      "nominal": "3000",
-      "category": "Drink",
-      "date": "Thu Oct 19 2023 16:13:47 GMT+0700 (Western Indonesia Time)",
-      "id": 17
-    },
-    {
-      "name": "Aqua",
-      "nominal": "3000",
-      "category": "Drink",
-      "date": "4",
-      "id": 18
-    },
-    {
-      "name": "Aqua",
-      "nominal": "3000",
-      "category": "Drink",
-      "date": "Thu Oct 19 2023 16:14:18 GMT+0700 (Western Indonesia Time)",
-      "id": 19
-    },
-    {
-      "name": "Aqua",
-      "nominal": "3000",
-      "category": "Drink",
-      "date": "19",
-      "id": 20
-    },
-    {
-      "name": "Aqua",
-      "nominal": "3000",
-      "category": "Drink",
-      "date": "19 - 9 - 2023",
-      "id": 21
-    },
-    {
-      "name": "Aqua",
-      "nominal": "3000",
-      "category": "Drink",
-      "date": "19-9-2023",
-      "id": 22
-    },
-    {
-      "name": "Aqua",
-      "nominal": "3000",
-      "category": "Drink",
-      "date": "19-10-2023",
-      "id": 23
-    },
-    {
-      "name": "Aqua",
-      "nominal": "3000",
-      "category": "Drink",
-      "date": "19-10-2023",
-      "id": 24
     }
   ]
 }

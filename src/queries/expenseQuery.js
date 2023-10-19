@@ -24,17 +24,18 @@ const findExpensesQuery = async (id) => {
 
 const createExpensesQuery = async (name, nominal, category) => {
 	try {
-
 		const { data } = await axios.post(`${jsonURL}/user`, {
 			name,
 			nominal,
 			category,
-			date: `${new Date().getDate()}-${new Date().getUTCMonth() + 1}-${new Date().getFullYear()}`
+			date: `${new Date().getDate()}-${
+				new Date().getUTCMonth() + 1
+			}-${new Date().getFullYear()}`,
 		});
-	
+
 		return data;
 	} catch (err) {
-		console.log(err)
+		console.log(err);
 	}
 };
 
@@ -68,9 +69,10 @@ const findExpensesQueryByDate = async () => {
 		console.log(err);
 	}
 };
-const findExpensesQueryByCategory = async () => {
+const findExpensesQueryByCategory = async (category) => {
 	try {
-		const { data } = await axios.get(`${jsonURL}/user`);
+		const { data } = await axios.get(`${jsonURL}/user?category=${category}`);
+		console.log(data);
 		return data;
 	} catch (err) {
 		console.log(err);

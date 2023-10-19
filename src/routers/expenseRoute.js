@@ -16,7 +16,7 @@ router.get("/:id", findExpensesController);
 router.post("/", createExpensesController);
 router.patch("/", changeExpensesController);
 router.delete("/:id", removeExpensesController);
-router.get("/category/:category", findExpensesControllerByCategory);
+router.get("/category/category", findExpensesControllerByCategory);
 router.get("/date/date", findExpensesControllerByDate);
 
 module.exports = router;

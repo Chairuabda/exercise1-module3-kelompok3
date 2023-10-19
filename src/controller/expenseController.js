@@ -104,7 +104,7 @@ const findExpensesControllerByDate = async (req, res) => {
 
 const findExpensesControllerByCategory = async (req, res) => {
     try {
-        const { category } = req.params;
+        const { category } = req.query;
         const expenses = await findexpensesServiceByCategory(category);
         return res.status(200).json({
             message: 'get by category expense succes',
