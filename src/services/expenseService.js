@@ -5,7 +5,7 @@ const {
 	changeExpensesQuery,
 	removeExpensesQuery,
 	findExpensesQueryByDate,
-	findExpensesQueryByCategory,
+	// findExpensesQueryByCategory,
 } = require("../queries/expenseQuery");
 
 const findExpensesServiceList = async () => {
@@ -58,34 +58,40 @@ const removeExpensesService = async (id) => {
 	}
 };
 
-const findexpensesServiceByDate = async (date) => {
+const findexpensesServiceByDate = async (date, category) => {
 	try {
-		const expenses = await findExpensesQueryByDate(date);
-		let resultExpenses = 0;
-		for (let x in expenses) {
-			if (expenses[x].date === date) {
-				resultExpenses += Number(expenses[x].nominal);
-			}
-		}
-		return resultExpenses;
-	} catch (err) {
-		console.log(err);
-	}
-};
-const findexpensesServiceByCategory = async (category) => {
-	try {
-		const expenses = await findExpensesQueryByCategory(category);
-		let resultExpenses = 0;
-		for (let x in expenses) {
-			resultExpenses += Number(expenses[x].nominal);
-			// if (expenses[x].category.toLowerCase() == category) {
+		const expenses = await findExpensesQueryByDate(date, category);
+		// let resultExpenses = 0;
+		if (date || category) {
+			// for (let x in expenses) {
+			// 	resultExpenses += Number(expenses[x].nominal);
 			// }
+			let resultNominal = expenses
+				.map((data) => {
+					return data.nominal;
+				})
+				.reduce((total, num) => +total + +num);
+			return `${resultNominal}`;
 		}
-		return resultExpenses;
+		return expenses;
 	} catch (err) {
 		console.log(err);
 	}
 };
+// const findexpensesServiceByCategory = async (category) => {
+// 	try {
+// 		const expenses = await findExpensesQueryByCategory(category);
+// 		let resultExpenses = 0;
+// 		for (let x in expenses) {
+// 			resultExpenses += Number(expenses[x].nominal);
+// 			// if (expenses[x].category.toLowerCase() == category) {
+// 			// }
+// 		}
+// 		return resultExpenses;
+// 	} catch (err) {
+// 		console.log(err);
+// 	}
+// };
 
 module.exports = {
 	findExpensesServiceList,
@@ -94,5 +100,5 @@ module.exports = {
 	changeExpensesService,
 	removeExpensesService,
 	findexpensesServiceByDate,
-	findexpensesServiceByCategory,
+	// findexpensesServiceByCategory,
 };

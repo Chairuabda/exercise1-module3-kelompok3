@@ -61,23 +61,27 @@ const removeExpensesQuery = async (id) => {
 	}
 };
 
-const findExpensesQueryByDate = async () => {
+const findExpensesQueryByDate = async (date, category) => {
 	try {
-		const { data } = await axios.get(`${jsonURL}/user`);
+		let url = `${jsonURL}/user`;
+		if(category) url= `${url}?category=${category}`
+		if(date) url = `${url}?date=${date}`
+		const { data } = await axios.get(`${url}`);
 		return data;
 	} catch (err) {
 		console.log(err);
 	}
 };
-const findExpensesQueryByCategory = async (category) => {
-	try {
-		const { data } = await axios.get(`${jsonURL}/user?category=${category}`);
-		console.log(data);
-		return data;
-	} catch (err) {
-		console.log(err);
-	}
-};
+// const findExpensesQueryByCategory = async (category) => {
+// 	try {
+// 		let url = `${jsonURL}/epenses` 
+// 		if ()const { data } = await axios.get(`${url}?category=${category}`);
+// 		console.log(data);
+// 		return data;
+// 	} catch (err) {
+// 		console.log(err);
+// 	}
+// };
 
 module.exports = {
 	findExpensesQueryList,
@@ -85,6 +89,6 @@ module.exports = {
 	createExpensesQuery,
 	changeExpensesQuery,
 	removeExpensesQuery,
-	findExpensesQueryByCategory,
+	// findExpensesQueryByCategory,
 	findExpensesQueryByDate,
 };

@@ -4,7 +4,7 @@ const {
 	createExpensesService,
 	changeExpensesService,
 	removeExpensesService,
-    findexpensesServiceByCategory,
+    // findexpensesServiceByCategory,
     findexpensesServiceByDate
 } = require("../services/expenseService");
 
@@ -89,8 +89,8 @@ const removeExpensesController = async (req, res) => {
 
 const findExpensesControllerByDate = async (req, res) => {
     try {
-        const { date } = req.query;
-        const expenses = await findexpensesServiceByDate(date);
+        const { date = null, category = null } = req.query;
+        const expenses = await findexpensesServiceByDate(date, category);
         return res.status(200).json({
             message: 'get by date expense succes',
             data : expenses,
@@ -102,20 +102,20 @@ const findExpensesControllerByDate = async (req, res) => {
     }
 }
 
-const findExpensesControllerByCategory = async (req, res) => {
-    try {
-        const { category } = req.query;
-        const expenses = await findexpensesServiceByCategory(category);
-        return res.status(200).json({
-            message: 'get by category expense succes',
-            total : `${category}: ${expenses}`,
-        })
-    } catch (err) {
-        return res.status(500).json({
-			message: err.message,
-		});
-    }
-}
+// const findExpensesControllerByCategory = async (req, res) => {
+//     try {
+//         const { category } = req.query;
+//         const expenses = await findexpensesServiceByCategory(category);
+//         return res.status(200).json({
+//             message: 'get by category expense succes',
+//             total : `${category}: ${expenses}`,
+//         })
+//     } catch (err) {
+//         return res.status(500).json({
+// 			message: err.message,
+// 		});
+//     }
+// }
 
 module.exports = {
 	findExpensesControllerList,
@@ -124,5 +124,5 @@ module.exports = {
 	changeExpensesController,
 	removeExpensesController,
     findExpensesControllerByDate,
-    findExpensesControllerByCategory
+    // findExpensesControllerByCategory
 };

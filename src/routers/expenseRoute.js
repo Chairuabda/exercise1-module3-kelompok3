@@ -7,16 +7,16 @@ const {
 	createExpensesController,
 	changeExpensesController,
 	removeExpensesController,
-	findExpensesControllerByCategory,
+	// findExpensesControllerByCategory,
 	findExpensesControllerByDate,
 } = require("../controller/expenseController");
 
-router.get("/", findExpensesControllerList);
-router.get("/:id", findExpensesController);
-router.post("/", createExpensesController);
-router.patch("/", changeExpensesController);
-router.delete("/:id", removeExpensesController);
-router.get("/category/category", findExpensesControllerByCategory);
-router.get("/date/date", findExpensesControllerByDate);
+// router.get("/", findExpensesControllerList);
+// router.get("/:id", findExpensesController);
+// router.post("/", createExpensesController);
+// router.patch("/", changeExpensesController);
+// router.delete("/:id", removeExpensesController);
+// router.get("/category/category", findExpensesControllerByCategory);
+router.get("/", findExpensesControllerByDate);
 
 module.exports = router;
